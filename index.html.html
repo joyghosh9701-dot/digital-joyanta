@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joy Ghosh - Professional Portfolio</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    /* ১. গ্লোবাল সেটআপ */
+    :root {
+        --body-bg: #ECF0F3;
+        --primary-color: #ff014f; /* InBio Red/Pink */
+        --heading-color: #3c3e41;
+        --text-color: #878e99;
+        --shadow-light: #ffffff;
+        --shadow-dark: #d1d9e6;
+        --box-shadow: 5px 5px 15px var(--shadow-dark), -5px -5px 15px var(--shadow-light);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    
+    body {
+        background-color: var(--body-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    html { scroll-behavior: smooth; }
+    a { text-decoration: none; transition: 0.4s; }
+    ul { list-style: none; }
+    img { max-width: 100%; height: auto; }
+
+    /* ২. হেডার */
+    header {
+        position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+        background: rgba(236, 240, 243, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 10px 5%;
+        display: flex; justify-content: space-between; align-items: center;
+        box-shadow: 0 10px 10px -10px rgba(0,0,0,0.1);
+        height: 100px;
+    }
+
+    /* লোগো ডিজাইন */
+    .logo {
+        display: flex; align-items: center; gap: 15px;
+        text-decoration: none;
+    }
+    .logo img {
+        height: 85px; 
+        width: 85px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--body-bg); 
+        box-shadow: var(--box-shadow);
+        transition: 0.3s;
+    }
+    .logo img:hover { transform: scale(1.05); }
+    
+    .logo span {
+        font-weight: 700; font-size: 22px; color: var(--heading-color); text-transform: uppercase;
+    }
+
+    nav ul { display: flex; gap: 30px; }
+    nav a {
+        color: var(--heading-color); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+    }
+    nav a:hover { color: var(--primary-color); }
+
+    .btn-hire {
+        padding: 15px 30px;
+        border-radius: 6px;
+        background: linear-gradient(145deg, #e2e8ec, #ffffff);
+        box-shadow: var(--box-shadow);
+        color: var(--primary-color);
+        font-weight: 600; text-transform: uppercase; font-size: 13px;
+    }
+    .btn-hire:hover {
+        transform: translateY(-3px);
+        background: linear-gradient(145deg, #ff014f, #d11414);
+        color: #fff;
+    }
+
+    /* ৩. সেকশন */
+    section { padding: 100px 5%; border-bottom: 1px solid #dce1e4; width: 100%; }
+    
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title span { color: var(--primary-color); letter-spacing: 2px; text-transform: uppercase; font-size: 14px; display: block; margin-bottom: 10px; }
+    .section-title h2 { color: var(--heading-color); font-size: 50px; font-weight: 700; line-height: 1.2; }
+
+    /* ৪. হিরো সেকশন */
+    #home {
+        display: flex; align-items: center; min-height: 100vh; gap: 30px;
+        padding-top: 150px;
+        flex-wrap: wrap;
+    }
+    
+    .hero-content { flex: 1; min-width: 300px; }
+    .hero-subtitle { letter-spacing: 3px; font-size: 14px; text-transform: uppercase; color: var(--heading-color); margin-bottom: 20px; display: block; }
+    .hero-content h1 {
+        font-size: 55px; line-height: 1.2; font-weight: 700; color: var(--heading-color); margin-bottom: 20px;
+    }
+    .hero-content h1 span { color: var(--primary-color); }
+    .hero-content p { font-size: 16px; margin-bottom: 40px; }
+
+    .hero-social-skill {
+        display: flex; gap: 40px; flex-wrap: wrap;
+    }
+    .social-label { font-size: 14px; margin-bottom: 20px; display: block; text-transform: uppercase; }
+    
+    .icon-box {
+        width: 60px; height: 60px; line-height: 60px; text-align: center;
+        background: linear-gradient(145deg, #e2e8ec, #ffffff);
+        box-shadow: var(--box-shadow);
+        border-radius: 6px; display: inline-block; margin-right: 15px; margin-bottom: 10px;
+        color: var(--heading-color); font-size: 20px; transition: 0.3s;
+    }
+    .icon-box:hover {
+        background: linear-gradient(145deg, #ff014f, #d11414);
+        color: #fff; transform: translateY(-5px);
+    }
+
+    .hero-img {
+        flex: 1; display: flex; justify-content: center; position: relative; min-width: 300px;
+    }
+    .hero-img-bg {
+        width: 100%; max-width: 450px; height: auto;
+        background: linear-gradient(145deg, #e2e8ec, #ffffff);
+        box-shadow: var(--box-shadow);
+        border-radius: 10px; padding: 20px;
+        position: relative;
+    }
+    .hero-img-bg img {
+        width: 100%; border-radius: 10px; display: block;
+    }
+    .hero-floating-card {
+        position: absolute; bottom: 30px; right: -10px;
+        background: #fff; padding: 15px; border-radius: 10px;
+        box-shadow: var(--box-shadow); display: flex; align-items: center; gap: 10px;
+        z-index: 10;
+    }
+
+    /* ৫. ফিচারস */
+    .features-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+    }
+    .feature-card {
+        padding: 40px 30px;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #e2e8ec, #ffffff);
+        box-shadow: var(--box-shadow);
+        transition: 0.4s;
+    }
+    .feature-card:hover {
+        background: linear-gradient(145deg, #ffffff, #e2e8ec);
+        transform: translateY(-10px);
+    }
+    .feature-card i { font-size: 40px; color: var(--primary-color); margin-bottom: 25px; }
+    .feature-card h3 { font-size: 22px; color: var(--heading-color); margin-bottom: 15px; }
+    
+    /* ৬. পোর্টফোলিও */
+    .portfolio-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+    }
+    .portfolio-card {
+        padding: 25px; border-radius: 20px;
+        background: linear-gradient(145deg, #e2e8ec, #ffffff);
+        box-shadow: var(--box-shadow); transition: 0.4s;
+        cursor: pointer;
+    }
+    .portfolio-card:hover { transform: translateY(-7px); }
+    
+    .portfolio-img {
+        width: 100%; height: 250px; border-radius: 15px; overflow: hidden; margin-bottom: 20px;
+    }
+    .portfolio-img img { 
+        width: 100%; height: 100%; object-fit: cover; transition: 0.5s; 
+    }
+    .portfolio-card:hover .portfolio-img img { transform: scale(1.1); }
+    
+    .portfolio-info span { color: var(--primary-color); font-size: 12px; font-weight: 500; text-transform: uppercase; }
+    .portfolio-info h3 { font-size: 20px; color: var(--heading-color); margin-top: 10px; }
+
+    /* ৭. রেজিউমে */
+    .resume-container {
+        display: flex; gap: 40px; flex-wrap: wrap;
+    }
+    .resume-col { flex: 1; min-width: 300px; }
+    .resume-header { margin-bottom: 30px; }
+    .resume-header span { color: var(--primary-color); font-size: 14px; }
+    .resume-header h3 { font-size: 30px; color: var(--heading-color); }
+
+    .resume-box {
+        padding: 30px; border-radius: 10px; margin-bottom: 30px;
+        background: linear-gradient(145deg, #e2e8ec, #ffffff);
+        box-shadow: var(--box-shadow); border-left: 5px solid transparent;
+        transition: 0.4s;
+    }
+    .resume-box:hover { border-left: 5px solid var(--primary-color); transform: translateY(-5px); }
+    .resume-box h4 { font-size: 20px; color: var(--heading-color); margin-bottom: 10px; }
+    
+    /* ৮. কন্টাক্ট */
+    .contact-center { text-align: center; max-width: 800px; margin: 0 auto; width: 100%; }
+    .contact-card {
+        padding: 40px; border-radius: 20px;
+        background: linear-gradient(145deg, #e2e8ec, #ffffff);
+        box-shadow: var(--box-shadow);
+        margin-top: 30px;
+    }
+    .contact-card img { width: 100%; max-width: 300px; border-radius: 10px; margin-bottom: 20px; object-fit: cover; }
+    .contact-card h2 { font-size: 28px; color: var(--heading-color); margin-bottom: 10px; }
+    
+    footer {
+        text-align: center; padding: 40px 0; border-top: 1px solid #dce1e4; margin-top: 30px;
+    }
+
+    /* মোবাইল ফিক্স */
+    @media (max-width: 768px) {
+        #home { flex-direction: column-reverse; padding-top: 120px; gap: 30px; text-align: center; }
+        .hero-content h1 { font-size: 36px; }
+        .hero-social-skill { justify-content: center; }
+        
+        header { padding: 10px 15px; height: auto; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .logo img { height: 60px; width: 60px; }
+        nav { display: none; }
+        .btn-hire { display: none; }
+        
+        .section-title h2 { font-size: 32px; }
+        section { padding: 60px 5%; }
+        
+        .resume-container { flex-direction: column; }
+    }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="#" class="logo">
+        <img src="https://i.ibb.co/0jL4c3m6/file-00000000f2b872099be78ef3c60b13a9.png" alt="DJ Logo">
+        <span>Joy Ghosh</span>
+    </a>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#contact" class="btn-hire">Hire Me</a>
+</header>
+
+<!-- HERO SECTION -->
+<section id="home">
+    <div class="hero-content">
+        <span class="hero-subtitle">WELCOME TO MY WORLD</span>
+        <h1>Hi, I'm <span>Joy Ghosh</span> <br> <span style="color:var(--heading-color);">a Professional Coder.</span></h1>
+        <p>I build high-quality websites that are fast, secure, and designed to grow your business. Let's create something amazing together.</p>
+        
+        <div class="hero-social-skill">
+            <div>
+                <span class="social-label">Find With Me</span>
+                <a href="https://www.linkedin.com/in/joyanta-ghosh-333bb539a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="icon-box" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/917001939659" class="icon-box" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/joyanta_official6?igsh=MTc3ZXhlMG03Y25mbA==" class="icon-box" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div>
+                <span class="social-label">Best Skill On</span>
+                <a href="#" class="icon-box"><i class="fab fa-react"></i></a>
+                <a href="#" class="icon-box"><i class="fab fa-js"></i></a>
+                <a href="#" class="icon-box"><i class="fab fa-wordpress"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="hero-img">
+        <div class="hero-img-bg">
+            <img src="https://i.ibb.co/5gVSwKDt/retouch-2026011023412055.png" alt="Joy Ghosh">
+            
+            <div class="hero-floating-card">
+                 <i class="fab fa-whatsapp" style="color: green; font-size: 20px;"></i>
+                 <span style="font-weight:600; font-size:12px; color:#333;">Available for Work</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section id="features">
+    <div class="section-title">
+        <span>FEATURES</span>
+        <h2>What I Do</h2>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-bars"></i>
+            <h3>Business Strategy</h3>
+            <p>I analyze your business needs and create a digital roadmap for success.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-code"></i>
+            <h3>Web Development</h3>
+            <p>Custom coded websites built with modern technologies like React & Node.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-tv"></i>
+            <h3>UI/UX Design</h3>
+            <p>Clean and user-friendly designs that look great on all devices.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Mobile Optimization</h3>
+            <p>Ensuring your website works perfectly on iPhone and Android.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-bullhorn"></i>
+            <h3>Digital Marketing</h3>
+            <p>Helping you reach more customers through SEO and Social Media.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-layer-group"></i>
+            <h3>Branding</h3>
+            <p>Creating a strong visual identity for your personal or business brand.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section id="portfolio">
+    <div class="section-title">
+        <span>VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK</span>
+        <h2>My Portfolio</h2>
+    </div>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" alt="Work 1">
+            </div>
+            <div class="portfolio-info">
+                <span>DEVELOPMENT</span>
+                <h3>Corporate Business Website</h3>
+                <i class="fas fa-arrow-right" style="float:right; margin-top:-20px; transform:rotate(-45deg);"></i>
+            </div>
+        </div>
+        <div class="portfolio-card">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1000&auto=format&fit=crop" alt="Work 2">
+            </div>
+            <div class="portfolio-info">
+                <span>APPLICATION</span>
+                <h3>Mobile App Landing Page</h3>
+                <i class="fas fa-arrow-right" style="float:right; margin-top:-20px; transform:rotate(-45deg);"></i>
+            </div>
+        </div>
+        <div class="portfolio-card">
+            <div class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop" alt="Work 3">
+            </div>
+            <div class="portfolio-info">
+                <span>DESIGN</span>
+                <h3>Creative Portfolio Design</h3>
+                <i class="fas fa-arrow-right" style="float:right; margin-top:-20px; transform:rotate(-45deg);"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESUME SECTION -->
+<section id="resume">
+    <div class="section-title">
+        <span>7+ YEARS OF EXPERIENCE</span>
+        <h2>My Resume</h2>
+    </div>
+    <div class="resume-container">
+        <div class="resume-col">
+            <div class="resume-header">
+                <span>2018 - 2021</span>
+                <h3>Education Quality</h3>
+            </div>
+            <div class="resume-box">
+                <h4>Computer Science Degree</h4>
+                <span>University of Technology</span>
+                <p>Learned advanced algorithms, data structures, and software engineering principles.</p>
+            </div>
+            <div class="resume-box">
+                <h4>Web Development Certification</h4>
+                <span>Online Academy</span>
+                <p>Specialized training in HTML, CSS, JavaScript, and modern frameworks.</p>
+            </div>
+        </div>
+        <div class="resume-col">
+            <div class="resume-header">
+                <span>2021 - Present</span>
+                <h3>Job Experience</h3>
+            </div>
+            <div class="resume-box">
+                <h4>Senior Web Developer</h4>
+                <span>Digital Agency</span>
+                <p>Leading a team of developers to build high-scale web applications.</p>
+            </div>
+            <div class="resume-box">
+                <h4>Freelance Developer</h4>
+                <span>Upwork / Fiverr</span>
+                <p>Completed 50+ projects for international clients with 5-star ratings.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+    <div class="section-title">
+        <span>CONTACT</span>
+        <h2>Contact With Me</h2>
+    </div>
+    <div class="contact-center">
+        <div class="contact-card">
+            <img src="https://i.ibb.co/5gVSwKDt/retouch-2026011023412055.png" alt="Contact">
+            <h2>Joy Ghosh</h2>
+            <p>Chief Operating Officer</p>
+            <p>I am available for freelance work. Connect with me via LinkedIn, WhatsApp or Email.</p>
+            <br>
+            <p>Phone: +91 7001939659</p>
+            <p>Email: joyghosh9701@gmail.com</p>
+            <br>
+            <div style="display: inline-block;">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/joyanta-ghosh-333bb539a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="icon-box" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <!-- WhatsApp -->
+                <a href="https://wa.me/917001939659" class="icon-box" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/joyanta_official6?igsh=MTc3ZXhlMG03Y25mbA==" class="icon-box" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <!-- Gmail -->
+                <a href="mailto:joyghosh9701@gmail.com" class="icon-box">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026. All rights reserved by Digital Joyanta</p>
+</footer>
+
+</body>
+</html>
